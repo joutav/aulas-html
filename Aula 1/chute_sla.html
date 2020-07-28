@@ -1,0 +1,99 @@
+<meta charset="UTF-8">
+
+
+<h1>Tente advinhar o número</h1>
+<br> 
+<input/>
+<button>Verifique</button>
+
+<script>
+
+    function mostra(texto) {
+        
+        document.write(texto);
+
+    }
+
+    function pulaLinha() {
+
+        document.write("<br>");
+
+    }
+    function verifica() {   
+        if (tentativas <= 3) {
+        
+            if (chute.value == numero) { 
+            alert("Você acertou!! O número era " + numero + ".");
+            } 
+            
+            if (chute.value != numero) {
+            alert("Você errou!!");
+            tentativas++;
+            chute.focus();
+            }
+        
+        } else{
+            alert("Acabaram as tentativas, os número eram " + numero);
+        } 
+    }
+
+
+    function sorteia() {
+        return Math.round(Math.random() * 10);
+    }
+
+    function sorteiaNumeros(quantidade) {
+        
+        var numero = [];
+        var quantidades = 1;
+
+        while (quantidades <= quantidade) {
+
+            
+            var numeroAleatorio = sorteia();
+            var achou = false
+
+            for (var posicao = 0; posicao <= numero.length; posicao++ ) {
+                if(numero[posicao] == numeroAleatorio)
+                    achou = true;
+                    break;
+            }
+
+
+            if(achou == false) {
+                numero.push(numeroAleatorio);
+                quantidades++
+            }
+        }
+
+        return numero
+
+        
+    }
+
+
+
+
+
+var numero = sorteiaNumeros(5);
+console.log(numero);
+var chute = document.querySelector("input");
+var button = document.querySelector("button");
+chute.focus();
+var tentativas = 1;
+
+
+    
+button.onclick = verifica;
+
+
+
+
+
+
+
+
+
+
+
+</script>

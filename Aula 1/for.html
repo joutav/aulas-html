@@ -1,0 +1,32 @@
+<meta charset="UTF-8">
+
+<script>
+
+function mostra(texto) {
+        
+    document.write(texto);
+
+    }   
+
+function imc(peso, altura) {
+
+    return peso / ((altura / 100)) * ((altura / 100))
+
+}
+
+function pulaLinha() {
+
+    document.write("<br>");
+
+}      
+
+
+for (var multiplicador = 1; multiplicador <= 10; multiplicador++) {
+    mostra(7 * multiplicador);
+    pulaLinha();
+    
+}
+
+mostra("FIM");
+
+</script>
